@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ansi_c_ai_tutor
+    ports:
+      - "8000:8000"
+    volumes:
+      # Map host folders for persistent books and vector database
+      - ./books:/app/books
+      - ./vector_store:/app/vector_store
+    env_file:
+      - .env
+    environment:
+      - PORT=8000
+    restart: always
