@@ -252,7 +252,7 @@ export default function ResponseParser({ answer }) {
                 className="code-copy-btn" 
                 onClick={() => handleCopyCode(sections.program)}
               >
-                {copied ? 'Copied!' : 'Copy Code'}
+                {copied ? 'Copied!' : 'Copy'}
               </button>
             </div>
             <pre className="code-body">

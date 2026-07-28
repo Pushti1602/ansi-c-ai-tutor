@@ -1016,3 +1016,619 @@ body {
     max-width: calc(100% - 40px);
   }
 }
+/* =========================================================
+   FINAL UI POLISH
+   ========================================================= */
+
+/* ---------- NEW SVG LOGO ---------- */
+
+.ansi-c-logo-svg {
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+.welcome-logo-wrapper .ansi-c-logo-svg {
+  display: block;
+  margin: 0 auto;
+}
+
+.header-right .ansi-c-logo-svg,
+.sidebar-title-area .ansi-c-logo-svg,
+.message-avatar .ansi-c-logo-svg {
+  flex-shrink: 0;
+}
+
+
+/* ---------- HEADER ---------- */
+
+.header-title-area {
+  display: flex;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.01em;
+}
+
+
+/* ---------- CLEAN WELCOME SCREEN ---------- */
+
+.welcome-container {
+  max-width: 760px;
+  padding: 2rem;
+}
+
+.welcome-logo-wrapper {
+  margin-bottom: 1.6rem;
+}
+
+.welcome-title {
+  margin-bottom: 0.8rem;
+}
+
+.welcome-tagline {
+  max-width: 560px;
+  margin-bottom: 0;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/*
+  Suggestion cards were removed from WelcomeScreen.jsx.
+  Hide them as a fallback in case old markup is ever rendered.
+*/
+
+.suggestions-grid {
+  display: none;
+}
+
+
+/* ---------- CHAT HISTORY ACTIONS ---------- */
+
+.history-item-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  margin-left: 0.35rem;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.chat-history-item:hover .history-item-actions,
+.chat-history-item:focus-within .history-item-actions {
+  opacity: 1;
+}
+
+.rename-history-btn,
+.delete-history-btn {
+  width: 26px;
+  height: 26px;
+  padding: 0;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+/* Override old delete-button opacity rule */
+.delete-history-btn {
+  opacity: 1;
+}
+
+.rename-history-btn:hover {
+  color: var(--accent-cyan);
+  background-color: rgba(0, 240, 255, 0.09);
+}
+
+.delete-history-btn:hover {
+  color: var(--accent-rose);
+  background-color: rgba(244, 63, 94, 0.1);
+}
+
+
+/* ---------- RENAME CHAT INPUT ---------- */
+
+.history-rename-input {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+
+  padding: 0.28rem 0.45rem;
+
+  background-color: var(--bg-primary);
+  border: 1px solid rgba(0, 240, 255, 0.35);
+  border-radius: 6px;
+
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+
+  outline: none;
+
+  box-shadow: 0 0 8px rgba(0, 240, 255, 0.08);
+}
+
+.history-rename-input:focus {
+  border-color: var(--accent-cyan);
+  box-shadow: 0 0 10px rgba(0, 240, 255, 0.16);
+}
+
+
+/* ---------- GENERATING RESPONSE ALIGNMENT ---------- */
+
+.generating-status {
+  display: flex;
+  align-items: center;
+  min-height: 36px;
+  gap: 0.6rem;
+  padding: 0;
+}
+
+.generating-text {
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
+}
+
+.generating-dots {
+  display: inline-flex;
+  align-items: center;
+  height: 18px;
+}
+
+.generating-dot {
+  flex-shrink: 0;
+}
+
+
+/* ---------- RESPONSE SECTIONS ---------- */
+
+.parsed-response {
+  width: 100%;
+}
+
+.parsed-section {
+  width: 100%;
+}
+
+.parsed-heading {
+  margin-bottom: 0.65rem;
+}
+
+.parsed-content {
+  line-height: 1.7;
+}
+
+.parsed-paragraph {
+  line-height: 1.7;
+}
+
+
+/* ---------- SYNTAX BLOCK ---------- */
+
+.syntax-box {
+  width: 100%;
+  padding: 0.9rem 1rem;
+
+  background-color: #101018;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  line-height: 1.65;
+
+  overflow-x: auto;
+}
+
+
+/* =========================================================
+   PROGRAM / CODE BLOCK
+   ========================================================= */
+
+.code-container {
+  width: 100%;
+  overflow: hidden;
+
+  background-color: #101018;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-md);
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Code header */
+
+.code-header {
+  width: 100%;
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0.55rem 0.75rem 0.55rem 1rem;
+
+  background-color: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid var(--border-light);
+}
+
+
+/* ANSI C label */
+
+.code-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+
+  color: var(--text-secondary);
+
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+
+/* COPY BUTTON - FAR RIGHT */
+
+.code-copy-btn {
+  margin-left: auto;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 54px;
+  height: 28px;
+  padding: 0 0.65rem;
+
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+
+  color: var(--text-muted);
+
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.code-copy-btn:hover {
+  color: var(--accent-cyan);
+  background-color: rgba(0, 240, 255, 0.06);
+  border-color: rgba(0, 240, 255, 0.14);
+}
+
+
+/* Code itself */
+
+.code-body {
+  margin: 0;
+  width: 100%;
+
+  padding: 1rem 1.1rem 1.15rem;
+
+  background-color: #101018;
+
+  color: #d7dce5;
+
+  font-family: var(--font-mono);
+  font-size: 0.84rem;
+  line-height: 1.7;
+
+  white-space: pre;
+  overflow-x: auto;
+
+  tab-size: 4;
+}
+
+.code-body code {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+
+/* =========================================================
+   C SYNTAX HIGHLIGHTING
+   ========================================================= */
+
+/* Keywords: if, return, for, while, etc. */
+
+.c-keyword {
+  color: #c792ea;
+  font-weight: 500;
+}
+
+
+/* Types: int, char, void, etc. */
+
+.c-type {
+  color: #82aaff;
+}
+
+
+/* Strings */
+
+.c-string {
+  color: #ecc48d;
+}
+
+
+/* Numbers */
+
+.c-number {
+  color: #f78c6c;
+}
+
+
+/* Preprocessor */
+
+.c-preprocessor {
+  color: #89ddff;
+}
+
+
+/*
+  COMMENTS:
+  intentionally softer and lighter than executable code
+  so explanations inside code are visually distinct.
+*/
+
+.c-comment {
+  color: #7f8c98;
+  font-style: italic;
+  opacity: 0.88;
+}
+
+
+/* Inline code used in explanations */
+
+.inline-code {
+  padding: 0.12rem 0.35rem;
+
+  background-color: rgba(0, 240, 255, 0.06);
+  border: 1px solid rgba(0, 240, 255, 0.1);
+  border-radius: 4px;
+
+  color: #a5f3fc;
+
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+
+/* ---------- SOURCES ---------- */
+
+.sources-box {
+  width: fit-content;
+  max-width: 100%;
+
+  margin-top: 1rem;
+
+  flex-wrap: wrap;
+
+  line-height: 1.4;
+}
+
+
+/* ---------- RESPONSE COPY BUTTON ---------- */
+
+.bubble-actions-row {
+  margin-top: 0.45rem;
+}
+
+.bubble-action-btn {
+  padding: 0.3rem 0.45rem;
+}
+
+
+/* ---------- COMPOSER ---------- */
+
+.composer-wrapper {
+  padding-bottom: 1rem;
+}
+
+.composer-container {
+  border-radius: 16px;
+}
+
+.composer-input-row {
+  min-height: 58px;
+  align-items: center;
+}
+
+.composer-textarea::placeholder,
+.code-context-textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.composer-disclaimer {
+  margin-top: 0.5rem;
+  line-height: 1.4;
+}
+
+
+/* ---------- MOBILE ---------- */
+
+@media (max-width: 768px) {
+
+  .welcome-container {
+    padding: 1.5rem;
+  }
+
+  .welcome-logo-wrapper {
+    margin-bottom: 1.2rem;
+  }
+
+  .welcome-title {
+    font-size: 1.8rem;
+  }
+
+  .welcome-tagline {
+    font-size: 0.9rem;
+  }
+
+  .messages-list {
+    padding: 0 1rem;
+  }
+
+  .composer-wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .history-item-actions {
+    opacity: 1;
+  }
+
+  .code-header {
+    padding-left: 0.8rem;
+  }
+
+  .code-body {
+    padding: 0.9rem;
+    font-size: 0.8rem;
+  }
+}
+/* =========================================================
+   ANSI C AI TUTOR — FINAL BRANDING
+   ========================================================= */
+
+.ansi-c-logo-svg {
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/* Main welcome logo */
+.welcome-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+/* Product name */
+.welcome-title {
+  color: #22ddf5;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-shadow:
+    0 0 8px rgba(34, 221, 245, 0.35),
+    0 0 20px rgba(34, 221, 245, 0.12);
+}
+
+/* Sidebar branding */
+.sidebar-title {
+  color: #22ddf5;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+
+/* Header product title */
+.header-title {
+  color: #22ddf5;
+  font-weight: 650;
+}
+/* =========================================================
+   FINAL ANSI C AI TUTOR BRAND
+   ========================================================= */
+
+.ansi-c-logo-svg {
+  display: block;
+  flex-shrink: 0;
+  overflow: visible;
+}
+
+/* Welcome logo container */
+.welcome-logo-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+}
+
+/* Main product wordmark */
+.welcome-title,
+.welcome-title * {
+  color: #22ddf5 !important;
+  background: none !important;
+  background-image: none !important;
+  -webkit-background-clip: initial !important;
+  -webkit-text-fill-color: #22ddf5 !important;
+}
+
+.welcome-title {
+  font-family:
+    "Arial Narrow",
+    "Bahnschrift SemiCondensed",
+    "Bahnschrift",
+    "Segoe UI",
+    sans-serif;
+
+  font-size: 2.35rem;
+  font-weight: 600;
+  font-stretch: condensed;
+  letter-spacing: 0.12em;
+  line-height: 1.1;
+
+  text-transform: uppercase;
+
+  text-shadow:
+    0 0 7px rgba(34, 221, 245, 0.42),
+    0 0 18px rgba(34, 221, 245, 0.16);
+}
+
+/* Keep smaller branding consistent */
+.sidebar-title {
+  color: #22ddf5 !important;
+  -webkit-text-fill-color: #22ddf5 !important;
+  font-family: "Bahnschrift", "Segoe UI", sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.header-title {
+  color: #22ddf5 !important;
+  -webkit-text-fill-color: #22ddf5 !important;
+  font-family: "Bahnschrift", "Segoe UI", sans-serif;
+  font-weight: 600;
+}
+
+/* Mobile wordmark */
+@media (max-width: 768px) {
+  .welcome-title {
+    font-size: 1.8rem;
+    letter-spacing: 0.09em;
+  }
+}
