@@ -71,13 +71,7 @@ export default function App() {
     }
   });
 
-  const [activeChatId, setActiveChatId] = useState(() => {
-    try {
-      return localStorage.getItem('ansi_c_tutor_active_id') || null;
-    } catch {
-      return null;
-    }
-  });
+  const [activeChatId, setActiveChatId] = useState(null);
 
   const [isSidebarCollapsed, setIsSidebarCollapsed] =
     useState(false);
@@ -104,26 +98,6 @@ export default function App() {
       console.error('Failed to save chats:', error);
     }
   }, [chats]);
-
-  useEffect(() => {
-    try {
-      if (activeChatId) {
-        localStorage.setItem(
-          'ansi_c_tutor_active_id',
-          activeChatId
-        );
-      } else {
-        localStorage.removeItem(
-          'ansi_c_tutor_active_id'
-        );
-      }
-    } catch (error) {
-      console.error(
-        'Failed to save active chat:',
-        error
-      );
-    }
-  }, [activeChatId]);
 
   // -------------------------------------------------------
   // AUTO SCROLL
